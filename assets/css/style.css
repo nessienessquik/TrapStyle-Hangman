@@ -1,7 +1,7 @@
 body {
 	background-color: #edbcd2;
 	background: linear-gradient(#ecbcd2, white);
-    height: 100vh;
+    height: 102vh;;
 }
 
 div {
@@ -95,7 +95,14 @@ div {
 .game-current-word {
 	/* width: 50px; */
 	padding: 10px;
+	clear: both;
+	width: 100%;
+    height: 80%;
 	/* float: left */
+}
+
+.current-static {
+    padding: 5px;
 }
 
 .game-guesses-remaining {
@@ -126,4 +133,16 @@ div {
 .word {
 	width: 60%;
 	height: 100px;
+}
+
+.current {
+	height: 200px;
+	clear: both;
+	padding: 15px;
+}
+
+.footer-img {
+	float: left;
+    width: 9%;
+    padding: 2.5%;
 }
