@@ -5,8 +5,8 @@ $( document ).ready(function() {
     $(".game-wins").text(counterWins);
 
     //set counter for number of guesses left
-    var counterGuess = 10;
-     $(".game-guesses-remaining").text(counterGuess);
+    var counterGuess = 15;
+
 
     var lettersGuessed = [];
 
@@ -18,15 +18,16 @@ $( document ).ready(function() {
 
         //store event.key into a variable
         var userInput = event.key;
-        console.log(userInput);
+        //console.log(userInput);
 
+        //if there isn't a word selected, randomy select one from wordsArray
         if (wordSelected.length === 0) {
             var newWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 
             console.log (newWord);
 
             for (i=0; i < newWord.length; i++) {
-            
+            //push to wordSelected array
             wordSelected.push(newWord[i]);
 
 
@@ -44,7 +45,7 @@ $( document ).ready(function() {
             for(i = 0; i < wordSelected.length; i++) {
                 if(wordSelected[i] === userInput) {
                     $("." + userInput).removeClass("hide");
-                    console.log("true");
+                    //console.log("true");
                 }//closes if statement
             }//closes for loop
         
@@ -64,15 +65,32 @@ $( document ).ready(function() {
 
                 $(".game-guesses-letters").text(lettersGuessed);
 
-            } else if (wordSelected[i] === userInput) {
+                counterGuess = counterGuess - 1;
 
-                //something heppens
+                $(".game-guesses-remaining").text(counterGuess);
+
+
+                if(counterGuess === 0) {
+                    $(".game-over").removeClass("hide");
+                    $(".game-current-word").addClass("hide");
+                    
+                    $(".game-over").on("click", function() {
+
+                        debugger
+                        $("game-current-word").empty();
+                        counterGuess = 15;
+                        wordSelected = [];
+                        });
+
+                        $(".game-over").addClass("hide");
+                        $(".game-current-word").removeClass("hide");
                 }
+            } 
 
         }
-       
 
     };
+
     
 });
 
