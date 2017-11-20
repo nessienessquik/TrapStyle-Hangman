@@ -14,17 +14,19 @@
     </head>
     <body>
         <!-- site content begins here -->
-
         <div class="container">
-
+            
+            <!-- header begins here -->
             <header class="fancy-header">
+                <!-- pink slanted div, BG for H1 & H2 -->
                 <div class="askew">
                 </div>
 
                 <h1>Hangman</h1>
                 <h2>Trap Style</h2>
             </header>
-
+            
+            <!-- game content begins here -->
             <main>
                 <div class="game aside-instructions">
                     Press any key to get started!
@@ -33,13 +35,13 @@
                 <div class="game word current">
                     <div class="current-static">Current Word:</div>
                     <div class="game game-current-word ">
-                    <!-- this is the invisible container
+                    <!-- this is the invisible container for randomly generated word
                     -->
                     </div>
                 </div>
 
                 <div class="game counters">
-                   Wins: <span class=" game-wins">these are the wins</span>
+                   Wins: <span class=" game-wins"> <!-- this is where the counterWins variable will show--> </span>
                </div>
 
                 <div class="game counters">
@@ -47,33 +49,29 @@
                 </div>
 
                 <div class="game aside-instructions">
-                    Letters already guessed: <span class="game-guesses-letters"></span>
+                    Letters already guessed: <span class="game-guesses-letters"><!-- this is where the counterGuess variable will show--></span>
                 </div>
+
+                <!-- game over button, hidden by default. should appear when the counterGuess variable = 0. when clicked, this should reset everything in the game except for the counterWins variable -->
+                <button class="game-over hide">game over - click here to play again!</button>
 
                 <div>
-                    <img class="footer-img" src="assets/images/foot_01.png">
-                    <img class="footer-img" src="assets/images/foot_05.png">
-
-                    
-                    <img class="footer-img" src="assets/images/foot_04.png">
-                    <img class="footer-img" src="assets/images/foot_07.png">
-
-                    <img class="footer-img" src="assets/images/foot_09.png">
-                    
-                    <img class="footer-img" src="assets/images/foot_03.png">
-                    <img class="footer-img" src="assets/images/foot_08.png">
-                    
-                    
+                    <!-- footer images-->
+                    <img class="footer-img" src="assets/images/foot_01.png" alt="Footer Image 01">
+                    <img class="footer-img" src="assets/images/foot_05.png" alt="Footer Image 05">
+                    <img class="footer-img" src="assets/images/foot_04.png" alt="Footer Image 04">
+                    <img class="footer-img" src="assets/images/foot_07.png" alt="Footer Image 07">
+                    <img class="footer-img" src="assets/images/foot_09.png" alt="Footer Image 09">
+                    <img class="footer-img" src="assets/images/foot_03.png" alt="Footer Image 03">
+                    <img class="footer-img" src="assets/images/foot_08.png" alt="Footer Image 08">
                     
                 </div>
-                <button class="game-over hide">game over - click here to play again!</button>
 
             </main>
 
-
-
-
         </div>
+
+        <!-- javascript & jquery linkage -->
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
         <script type="text/javascript" src="assets/javascript/game.js"></script>
