@@ -7,7 +7,6 @@ $(document).ready(function() {
     //set counter for number of guesses left
     var counterGuess = 15;
 
-
     // empty array for letters guessed
     var lettersGuessed = [];
 
@@ -29,40 +28,28 @@ $(document).ready(function() {
                     //push to wordSelected array
                     wordSelected.push(newWord[i]);
 
-                    $(".invisible-word").append("<div class='letter-container'><div class='letters " + wordSelected[i] + "' >" +wordSelected[i] + "</div></div>");
+                    $(".game-current-word").append("<div class='letter-container'><div class='letters " + wordSelected[i] + "' >" +wordSelected[i] + "</div></div>");
 
-                    //debugger;
                     if(newWord[i] != " " && userInput != wordSelected[i]) {
                         //auto-hides all of the letters in the wordSelected
-
                         $(".letters").addClass("hide");      
                     } //closes if statement for auto-hiding letters
-
                 }  //closes for loop to push leters to wordSelected array
-
             } else { //else, run a for loop on the wordSelected array, and if the userInput letter = a letter in the wordSelected array, the "hide" class will be removed, making the letter visible
                 
                 for(i = 0; i < wordSelected.length; i++) {
                     if(wordSelected[i] === userInput) {
                         $("." + userInput).removeClass("hide");
                     }//closes if statement for removing hide class
-
-                    //deals with winning. if counter guess is not equal to zero and no letters classes have the hidden class applied, display winner button and iterate counterWins variable
-
-                    var hideTest = $(".letters").hasClass("hide");
-                    console.log(wordSelected);
-                    
-
-                    if(hideTest === false && counterGuess > 0) {
-                        $(".game-winner").removeClass("hide");
-
-                        counterWins = counterWins + 1;
-                        $(".game-wins").text(counterWins);
-                    }//closes if statement for hideTest
-
                 }//closes for loop for wordSelected array
             
             }//closes if/else statement
+
+        //deals with winning. if counter guess is not equal to zero and no letters classes have the hidden class applied, display winner button and iterate counterWins variable
+
+        var hideTest = $(".letters").hasClass("hide");
+        console.log(wordSelected);
+        console.log(hideTest);
 
         //deals with displaying incorrect letter guesses
         //runs loop on wordSelected, stores the index # of userInput letter in the wordSelected and lettersGuessed arrays
@@ -97,10 +84,11 @@ $(document).ready(function() {
 
 
     //deals with resetting. this button is hidden by default, but if it's clicked it resets the game 
-    $(".game-over, .game-winner").on("click", function() {
+    $(".game-over").on("click", function() {
         //debugger;
         counterGuess = 15;
         wordSelected = [];
+
         var newWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 
         for (i=0; i < newWord.length; i++) {
@@ -114,8 +102,6 @@ $(document).ready(function() {
 
         }  //closes for loop to push letters to wordSelected array
 
-        $("invisible-word").empty();
-        $(".game-over, .game-winner").addClass("hide"); 
     });//closes the click function on game-over button
 
     

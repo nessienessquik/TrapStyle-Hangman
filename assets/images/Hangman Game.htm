@@ -1,16 +1,16 @@
-<!doctype html>
-<html>
-    <head>
+<!DOCTYPE html>
+<!-- saved from url=(0065)file:///Users/janhanna/Desktop/GA_Tech_HW/Hangman-Game/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Hangman Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- google fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Jolly+Lodger|Open+Sans|Overlock" rel="stylesheet">
+        <link href="./Hangman Game_files/css" rel="stylesheet">
  
 
         <!--css stylesheets -->
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="./Hangman Game_files/reset.css">
+        <link rel="stylesheet" href="./Hangman Game_files/style.css">
     </head>
     <body>
         <!-- site content begins here -->
@@ -36,37 +36,37 @@
                     <div class="current-static">Current Word:</div>
                     <div class="game game-current-word ">
                     <!-- this is the invisible container for randomly generated word
-                    <--><span class="invisible-word"></span>
+                    -->
                         <button class="game-winner hide">you won! click here to play again!</button>
                         <button class="game-over hide">game over. click here to play again!</button>
 
-                    </div>
+                    <div class="letter-container"><div class="letters t hide">t</div></div><div class="letter-container"><div class="letters i hide">i</div></div></div>
 
                 </div>
 
                 <div class="game counters">
-                   Wins: <span class=" game-wins"> <!-- this is where the counterWins variable will show--> </span>
+                   Wins: <span class=" game-wins">0</span>
                </div>
 
                 <div class="game counters">
-                    Number of guesses left: <span class=" game-guesses-remaining"></span>
+                    Number of guesses left: <span class=" game-guesses-remaining">14</span>
                 </div>
 
                 <div class="game aside-instructions">
-                    Letters already guessed: <span class="game-guesses-letters"><!-- this is where the counterGuess variable will show--></span>
+                    Letters already guessed: <span class="game-guesses-letters">Meta</span>
                 </div>
 
                 <!-- game over button, hidden by default. should appear when the counterGuess variable = 0. when clicked, this should reset everything in the game except for the counterWins variable -->
 
                 <div>
                     <!-- footer images-->
-                    <img class="footer-img" src="assets/images/foot_01.png" alt="Footer Image 01">
-                    <img class="footer-img" src="assets/images/foot_05.png" alt="Footer Image 05">
-                    <img class="footer-img" src="assets/images/foot_04.png" alt="Footer Image 04">
-                    <img class="footer-img" src="assets/images/foot_07.png" alt="Footer Image 07">
-                    <img class="footer-img" src="assets/images/foot_09.png" alt="Footer Image 09">
-                    <img class="footer-img" src="assets/images/foot_03.png" alt="Footer Image 03">
-                    <img class="footer-img" src="assets/images/foot_08.png" alt="Footer Image 08">
+                    <img class="footer-img" src="./Hangman Game_files/foot_01.png" alt="Footer Image 01">
+                    <img class="footer-img" src="./Hangman Game_files/foot_05.png" alt="Footer Image 05">
+                    <img class="footer-img" src="./Hangman Game_files/foot_04.png" alt="Footer Image 04">
+                    <img class="footer-img" src="./Hangman Game_files/foot_07.png" alt="Footer Image 07">
+                    <img class="footer-img" src="./Hangman Game_files/foot_09.png" alt="Footer Image 09">
+                    <img class="footer-img" src="./Hangman Game_files/foot_03.png" alt="Footer Image 03">
+                    <img class="footer-img" src="./Hangman Game_files/foot_08.png" alt="Footer Image 08">
                     
                 </div>
 
@@ -76,7 +76,8 @@
 
         <!-- javascript & jquery linkage -->
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
-        <script type="text/javascript" src="assets/javascript/game.js"></script>
-    </body>
-</html>
+        <script type="text/javascript" src="./Hangman Game_files/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="./Hangman Game_files/game.js"></script>
+    
+
+</body></html>

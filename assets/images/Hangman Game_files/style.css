@@ -93,6 +93,12 @@ main {
     margin: 0;
 }
 
+.invisible-word {
+	border-bottom: 1px solid #ffffff;
+	width: 5px;
+	float: left;
+}
+
 .game-current-word {
     padding: 10px;
     clear: both;
