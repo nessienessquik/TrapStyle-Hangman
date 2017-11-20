@@ -1,7 +1,7 @@
 body {
 	background-color: #edbcd2;
 	background: linear-gradient(#ecbcd2, white);
-    height: 1500px;
+    height: 100vh;
 }
 
 div {
@@ -11,45 +11,75 @@ div {
 
 main {
 	padding: 10px;
+	height: 53vh;
+}
+
+div {
+	box-sizing: border-box;
 }
 
 .fancy-header {
-	background: url("../images/bg_01.png");
-	background-repeat: no-repeat;
-	background position: top center;
-	background-size: cover;
-	height: 400px;
-	position: relative;
+    background: url(../images/bg_01.png);
+    background-repeat: repeat-y;
+    background-size: 100%;
+    margin: 0 10px;
+    height: 43vh;
+    position: relative;
+    background-color: #edbcd2;
+}
+
+.askew  {
+	height: 12vh;
+    width: 65%;
+    background-color: #ecbcd2;
+    position: absolute;
+    bottom: -16px;
+    right: 0;
+    transform: skewY(-5deg);
+    z-index: 1;
 }
 
 .fancy-header h1 {
-	position: absolute;
-	bottom: 0;
-	font-size: 12vw;
-	font-family: 'Overlock', cursive;
-	text-transform: uppercase;
-	color: rgba(255, 255, 255, 0.89);
+	font-size: 6vw;
+    font-family: 'Overlock', cursive;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.89);
+    z-index: 2;
+    position: absolute;
+    bottom: -7px;
+    right: 32px;
 }
 
 .fancy-header h2 {
-    position: absolute;
-    bottom: 68px;
-    font-size: 8vw;
+	font-size: 5vw;
     font-family: 'Jolly Lodger', cursive;
     color: black;
+    position: absolute;
+    bottom: 31px;
+    right: 34px;
+    z-index: 3;
 }
 
 .container {
-	width: 75%;
+	width: 50%;
 	margin: 0 auto;
 	color: #FFFFFF;
 	font-family: 'Open Sans', sans-serif;
+	height: 99vh;
 }
 
 .game {
-	background-color: rgba(255, 255, 255, 0.25);
-	padding: 10px;
-	clear: both;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 25px;
+    border: 5px solid #efc7d9;
+    float: left;
+}
+
+.aside-instructions {
+    clear: both;
+    float: none;
+    width: 100%;
+    margin: 0;
 }
 
 .invisible-word {
@@ -86,4 +116,14 @@ main {
 
 .hide {
 	visibility: hidden;
+}
+
+.counters {
+	width: 40%;
+	height: 100px;
+}
+
+.word {
+	width: 60%;
+	height: 100px;
 }
