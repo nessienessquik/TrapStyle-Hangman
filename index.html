@@ -3,15 +3,53 @@
     <head>
         <title>Hangman Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Jolly+Lodger|Open+Sans|Overlock" rel="stylesheet">
  
+        <!--css stylesheets -->
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
-        <!-- Add your site or application content here -->
+        <!-- site content begins here -->
+
         <div class="container">
-            
-         <p>Hello world! This is HTML5 Boilerplate.</p>
+
+            <header class="fancy-header">
+                <h1>Hangman</h1>
+                <h2>Trap Style</h2>
+            </header>
+
+            <main>
+                <div class="game aside-instructions">
+                    Press any key to get started!
+               </div>
+
+               <div class="game">
+                   Wins: <span class=" game-wins">these are the wins</span>
+               </div>
+
+               <div class="game">
+                   Current Word:
+                </div>
+
+                <div class="game-current-word">
+                    <!-- this is the invisible container
+                    -->
+                </div>
+
+                <div class="game">
+                    Number of guesses left: <span class=" game-guesses-remaining"></span>
+                </div>
+
+                <div class="game">
+                    Letters already guessed: <span class="game-guesses-letters"></span>
+                </div>
+
+            </main>
+
+
 
 
         </div>
