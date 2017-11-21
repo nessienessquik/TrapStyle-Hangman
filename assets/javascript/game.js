@@ -6,13 +6,13 @@ $(document).ready(function() {
 
     //set counter for number of guesses left
     var counterGuess = 15;
-
+    $(".game-guesses-remaining").text(counterGuess);
 
     // empty array for letters guessed
     var lettersGuessed = [];
 
     //create array of hangman terms
-    var wordsArray = ["migos", "future", "ti", "waka flocka flame", "gucci mane", "lil uzi vert", "young thug", "2 chainz", "young jeezy", "fetty wap", "travis scott", "rick ross", "rae sremmurd", "ugk", "master p", "yo gotti", "chief keef", "too short", "cardi b"];
+    var wordsArray = ["migos", "future", "ti", "waka flocka flame", "gucci mane", "lil uzi vert", "young thug", "2 chainz", "young jeezy", "fetty wap", "travis scott", "rick ross", "rae sremmurd", "ugk", "master p", "yo gotti", "chief keef", "too short", "cardi b", "rich homie quan", "bobby shmurda", "lil yachty", "21 savage"];
     var wordSelected = [];
 
     document.onkeyup = function() { 
@@ -29,18 +29,19 @@ $(document).ready(function() {
                     //push to wordSelected array
                     wordSelected.push(newWord[i]);
 
-                    $(".invisible-word").append("<div class='letter-container'><div class='letters " + wordSelected[i] + "' >" +wordSelected[i] + "</div></div>");
+                    //if statement adds appends spaces with "empty container" class
+                    if( wordSelected[i] === " " && userInput != wordSelected[i]) {
+                        $(".invisible-word").append("<div class='empty-container'> </div>");
 
-                    //debugger;
-                    if(newWord[i] != " " && userInput != wordSelected[i]) {
-                        //auto-hides all of the letters in the wordSelected
+                    } else { 
+                        //appends letters with "letter container", "letters", "hide", and character-specific classes
+                        $(".invisible-word").append("<div class='letter-container'><div class='letters " + wordSelected[i] + " hide'>" + wordSelected[i] + "</div></div>");
 
-                        $(".letters").addClass("hide");      
-                    } //closes if statement for auto-hiding letters
+                    }//closes if statement for auto-hiding letters
 
                 }  //closes for loop to push leters to wordSelected array
 
-            } else { //else, run a for loop on the wordSelected array, and if the userInput letter = a letter in the wordSelected array, the "hide" class will be removed, making the letter visible
+            }  else { //else, run a for loop on the wordSelected array, and if the userInput letter = a letter in the wordSelected array, the "hide" class will be removed, making the letter visible
                 
                 for(i = 0; i < wordSelected.length; i++) {
                     if(wordSelected[i] === userInput) {
@@ -95,27 +96,34 @@ $(document).ready(function() {
 
     };//closes onKeyUp function
 
-
     //deals with resetting. this button is hidden by default, but if it's clicked it resets the game 
     $(".game-over, .game-winner").on("click", function() {
         //debugger;
         counterGuess = 15;
         wordSelected = [];
+        $(".invisible-word").empty();
+        $(".game-guesses-letters").empty();
+        $(".game-over, .game-winner").addClass("hide");
+
         var newWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 
         for (i=0; i < newWord.length; i++) {
             //push to wordSelected array
             wordSelected.push(newWord[i]);
 
-            $(".game-current-word").append("<div class='letter-container'><div class='letters " + wordSelected[i] + "' >" +wordSelected[i] + "</div></div>");
+            if( wordSelected[i] === " ") {
+                $(".invisible-word").append("<div class='empty-container'> </div>");
 
+            } else { 
+                //appends letters with "letter container", "letters", "hide", and character-specific classes
+                $(".invisible-word").append("<div class='letter-container'><div class='letters " + wordSelected[i] + " hide'>" + wordSelected[i] + "</div></div>");
+
+            }
             //auto-hides all of the letters in the wordSelected
-            $(".letters").addClass("hide");    
+            //$(".letters").addClass("hide");    
 
         }  //closes for loop to push letters to wordSelected array
-
-        $("invisible-word").empty();
-        $(".game-over, .game-winner").addClass("hide"); 
+ 
     });//closes the click function on game-over button
 
     
