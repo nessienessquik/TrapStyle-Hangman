@@ -124,6 +124,11 @@ main {
     background-color: #f6e0ea;
 }
 
+.guess-container {
+    padding: 2px;
+    float: left;
+}
+
 .counters {
 	width: 40%;
 	height: 100px;
