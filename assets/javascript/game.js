@@ -53,6 +53,9 @@ $(document).ready(function() {
     }
 
     function runHideTest(){
+
+        //deals with winning. if counter guess is not equal to zero and no letters classes have the hidden class applied, display winner button and iterate counterWins variable
+
         var hideTestLetters = $(".letters").hasClass("hide");   
         var hideTestWinners = $(".game-winner").hasClass("hide");   
 
@@ -71,11 +74,30 @@ $(document).ready(function() {
                 
 
                 for(i = 0; i < wordSelected.length; i++) {
+
+                    var indexOfW = jQuery.inArray( userInput, wordSelected );
+                    var indexOfG = jQuery.inArray( userInput, lettersGuessed );
+
                     if(wordSelected[i] === userInput) {
                         $("." + userInput).removeClass("hide");
-                    }//closes if statement for removing hide class
+                    } else if (indexOfW === -1 && indexOfG === -1 && counterGuess > 0){
 
-                    //deals with winning. if counter guess is not equal to zero and no letters classes have the hidden class applied, display winner button and iterate counterWins variable
+                        lettersGuessed.push(userInput);
+
+                        $(".game-guesses-letters").append("<span class='guess-container'>" + userInput + "</span>");
+
+                        //also, increment the counterGuess variable down one and display that in the game-guesses-remaining span in the DOM
+                        counterGuess--;
+
+                        $(".game-guesses-remaining").text(counterGuess);
+
+
+                        if(counterGuess === 0) {
+                            $(".game-over").removeClass("hide");  
+                            $(".letters").removeClass("hide"); 
+                            }//closes inner if counterGuess = 0 statement
+
+                    }
 
                 }//closes for loop for wordSelected array
 
@@ -96,14 +118,28 @@ $(document).ready(function() {
             } //closes if/else statement
     }
 
-
-
     document.onkeyup = function() { 
 
         confirmAlpha(event.key);
         checkWordSelected();
 
         };//closes onKeyUp function
+
+
+        //deals with resetting. this button is hidden by default, but if it's clicked it resets the game 
+    $(".game-over, .game-winner").on("click", function() {
+
+        counterGuess = 10;
+        wordSelected = [];
+        lettersGuessed = [];
+        $(".invisible-word").empty();
+        $(".game-guesses-letters").empty();
+        $(".game-over, .game-winner").addClass("hide");
+        
+        generateRandomWord()
+ 
+    });//closes the click function on game-over button
+
 
 });//closes document ready function
 
